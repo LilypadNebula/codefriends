@@ -5,7 +5,7 @@
         <input type="text" v-model="searchQuery" />
         <font-awesome-icon icon="search"></font-awesome-icon>
       </div>
-      <button class="text-xl p-4 m-4 rounded bg-orange-400" @click="searchUsers">Search!</button>
+      <button class="enabledButton" @click="searchUsers">Search!</button>
       <p class="text-2xl text-center" v-if="peopleCount > 0">Results: {{peopleCount}}</p>
     </div>
     <div class="w-full md:w-2/3">
