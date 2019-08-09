@@ -1,19 +1,21 @@
 <template>
-  <div class="flex flex justify-between py-32 container mx-auto">
-    <div class="w-1/3 flex flex-col items-center">
+  <div
+    class="flex flex-col items-center md:items-start md:flex-row justify-between py-32 px-6 container mx-auto"
+  >
+    <div class="w-1/4 flex flex-col items-center">
       <div class="text-2xl p-4 border border-black rounded-full flex items-center">
         <input type="text" v-model="searchQuery" />
         <font-awesome-icon icon="search"></font-awesome-icon>
       </div>
       <button class="text-xl p-4 m-4 rounded bg-orange-400" @click="searchUsers">Search!</button>
     </div>
-    <div class="w-1/3">
-      <div v-if="loading">Loading...</div>
-      <div v-else>
+    <div class="w-full md:w-2/3">
+      <div v-if="loading" class="text-center">Loading...</div>
+      <div v-else class="flex flex-wrap">
         <a
           v-for="person in people"
           :key="person.id"
-          class="text-2xl p-8 flex justify-between items-center hover:bg-orange-200"
+          class="text-2xl p-2 flex justify-between items-center hover:bg-orange-200 w-1/2"
           :href="person.url"
         >
           <img
@@ -21,7 +23,14 @@
             class="h-16 w-16 rounded-full"
             :alt="`Avatar for ${person.login}`"
           />
-          <span>{{person.login}}</span>
+          <div class="text-center">
+            <p>{{person.login}}</p>
+            <p class="w-32 break-words border-t border-b">{{person.bio || "No bio"}}</p>
+            <p>
+              {{person.followers.totalCount}}
+              <font-awesome-icon icon="user-friends"></font-awesome-icon>
+            </p>
+          </div>
         </a>
       </div>
     </div>
