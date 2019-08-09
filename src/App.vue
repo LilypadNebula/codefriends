@@ -6,7 +6,7 @@
         <font-awesome-icon icon="search"></font-awesome-icon>
       </div>
       <button class="text-xl p-4 m-4 rounded bg-orange-400" @click="searchUsers">Search!</button>
-      <p class="text-2xl" v-if="peopleCount > 0">Results: {{peopleCount}}</p>
+      <p class="text-2xl text-center" v-if="peopleCount > 0">Results: {{peopleCount}}</p>
     </div>
     <div class="w-full md:w-2/3">
       <div v-if="loading" class="text-center">Loading...</div>
@@ -14,7 +14,7 @@
         <a
           v-for="person in shownPeople"
           :key="person.id"
-          class="border border-gray-600 rounded-lg m-4 w-2/5 text-xl shadow-md flex"
+          class="border border-gray-600 rounded-lg m-4 w-full md:w-2/5 text-lg md:text-xl shadow-md flex"
           :href="person.url"
         >
           <img
